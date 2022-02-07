@@ -10,14 +10,6 @@ decodex = json.load(f)
 ml = MonkeyLearn('c868fd48f12ff2bb4a182b45af1ea2c21f55e80e')
 
 
-def sentimen_text(text: str) -> str:
-    data = [text]
-    model_id = 'cl_pi3C7JiL'
-    result = ml.classifiers.classify(model_id, data)
-
-    return result.body[0]['classifications'][0]['tag_name']
-
-
 def find_url(text: str) -> list:
     _urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
     _uri = []
@@ -30,6 +22,19 @@ def find_url(text: str) -> list:
         _uri.append(_url)
 
     return _uri
+
+
+def sentimen_text(text: str) -> str:
+
+    for i in re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text):
+        text = text.replace(i, "")
+
+    data = [text]
+
+    model_id = 'cl_pi3C7JiL'
+    result = ml.classifiers.classify(model_id, data)
+
+    return result.body[0]['classifications'][0]['tag_name']
 
 
 def decodex_link(text: str) -> dict:
@@ -46,6 +51,8 @@ def decodex_link(text: str) -> dict:
 
 
 def fast_check_tools(text: str) -> dict:
+    for i in re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text):
+        text = text.replace(i, "")
     response = requests.get(url='https://factchecktools.googleapis.com/v1alpha1/claims:search', params=dict(
         key='AIzaSyAGZVW9V24uNcW8Yj-rQPdLFv7qwgCKwCM',
         query=text)
