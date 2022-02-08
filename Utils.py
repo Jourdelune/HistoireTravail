@@ -29,12 +29,18 @@ def sentimen_text(text: str) -> str:
     for i in re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text):
         text = text.replace(i, "")
 
+    if text.replace(" ", "") == "":
+        return {}
+
     data = [text]
 
     model_id = 'cl_pi3C7JiL'
     result = ml.classifiers.classify(model_id, data)
 
-    return result.body[0]['classifications'][0]['tag_name']
+    if result.body[0]['classifications'][0]['confidence'] >= 0.9 and  result.body[0]['classifications'][0]['tag_name'] == "Negative":
+        return  result.body[0]['classifications'][0]['tag_name']
+    else:
+        return "Positive"
 
 
 def decodex_link(text: str) -> dict:

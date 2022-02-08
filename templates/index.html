@@ -2,59 +2,51 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <title>Fake News Searcher</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Un site web qui permet de d'ébusquer les fake-news dans un text en donnant quelque indication.">
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  <link rel="stylesheet" href="{{ url_for('static', filename='/css/style.css') }}">
+  <script src="{{url_for('static', filename='/js/main.js')}}"></script>
+  <script async src='/cdn-cgi/bm/cv/669835187/api.js'></script>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-	body  {
-	  background-image: url("https://img.flo-x.fr/BF8GwlAg3m.png");
-	  
-	}
-  </style>
-<script async src='/cdn-cgi/bm/cv/669835187/api.js'></script></head>
+</head>
+
 <body style="background-color: #323031;">
   <h1 class="text-4xl font-bold text-white text-center my-12">
     Fake News Searcher
   </h1>
-  
+
   <h1 class="text-2xl font-semibold text-white text-center mt-72">
     <span style="color: #4C76E3">Faites</span> une recherche.
   </h1>
   <div class="flex justify-center items-center w-full  my-3">
-    <div class="relative w-2/5"> 
-	  <input type="text" class="h-12 w-full pl-5 rounded-lg z-0 focus:shadow focus:outline-none" placeholder="Ecrivez un text">
-      <div class="absolute top-3 right-4"> 
-	    <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500">
-		</i> 
+    <div class="relative w-2/5">
+	  <input id="input-data" onclick="RemoveDiv()" type="text" class="h-12 w-full pl-5 rounded-lg z-0 focus:shadow focus:outline-none" placeholder="Ecrivez un text">
+      <div class="absolute top-3 right-4">
+	    <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500" onclick="PostData()">
+		</i>
 	  </div>
-    </div>   
+    </div>
   </div>
-  
-  <div class="flex justify-center items-center mt-6 w-full">
-    <div class="relative w-2/5"> 
-	  <div class="bg-white h-auto w-full pl-5 rounded-lg pt-2 pb-2" style="color: #303030">
-	    <h4 class="font-bold">Nous n’avons rien trouvé</h4>
-		<p class="font-normal">Attention, cela ne veut pas dire que le text ne contient pas une fake news, mais nous ne pouvons pas donner des informations sur ce sujet.</p>
-	  </div>
-    </div>   
+
+  <div class="w-full" id="remove">
+
   </div>
-  
-  
-  
- 
-  
+
+
   <div class="flex justify-center items-center my-12 w-full mt-72">
-    <div class="relative w-4/5"> 
+    <div class="relative w-4/5">
 	  <h1 class="text-2xl font-bold text-white my-12">
 	  Qu'est ce que les fakes news ?
 	  </h1>
-	  
+
 	  <h1 class="text-2xl font-semibold text-white my-12">
 	  Les fake news sont des nouvelles mensongères diffusées dans le but de manipuler ou de tromper le public
 	  </h1>
-	  
-    </div>   
+
+    </div>
   </div>
-  
+
 <script type="text/javascript">(function(){window['__CF$cv$params']={r:'6d9e75b03fec6966',m:'079tjCocLusJqQ33VwTxmNPwZ9bIz.04aQMRuu5SUBE-1644256217-0-AdTehWdumjpaWzdjrd+dJ9aaHNTVw9kZWUiYwngyynCGWw6vt3WHb3xSL9UxSSCE3si0Ix+G3B2loyiKGARKp5yWHwyGT7hFVfoPsVxvXs9LOUGYVGTavBplseazAaOh5S8ACeJuV7+rNlF9qzNxpy6pHqgUA2Kx410X6NY5n8bJ4Ndgb6z/WnTLtaOFe5RRsw==',s:[0x0a79b7bf1c,0x8fd8a55627],}})();</script></body>
 </html>
