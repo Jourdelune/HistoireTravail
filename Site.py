@@ -5,6 +5,7 @@ from Utils import *
 import json
 
 app = Quart(__name__)
+app.jinja_env.auto_reload = True
 
 @app.route('/')
 async def index():

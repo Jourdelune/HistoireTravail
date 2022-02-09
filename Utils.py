@@ -14,14 +14,17 @@ def find_url(text: str) -> list:
     _urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', text)
     _uri = []
 
-    for i in _urls:
-        _url = (i.split("/")[2]+"/"+i.split("/")[3]).replace("www.", "", 1)
-        if _url [-1] == "/":
-            _url = _url[:-1]
+    try:
+        for i in _urls:
+            _url = (i.split("/")[2]+"/"+i.split("/")[3]).replace("www.", "", 1)
+            if _url [-1] == "/":
+                _url = _url[:-1]
 
-        _uri.append(_url)
+            _uri.append(_url)
 
-    return _uri
+        return _uri
+    except IndexError:
+        return []
 
 
 def sentimen_text(text: str) -> str:

@@ -14,40 +14,88 @@
 </head>
 
 <body>
-  <h1 class="text-4xl font-bold text-white text-center my-12">
-    Fake News Searcher
-  </h1>
+  <div class="h-screen">
+    <h1 class="text-4xl font-bold text-white text-center my-12">
+      Fake News <span class="text-gradient">Indicator</span>
+    </h1>
 
-  <h1 class="text-2xl font-semibold text-white text-center mt-72">
-    <span style="color: #4C76E3">Faites</span> une recherche.
-  </h1>
-  <div class="flex justify-center items-center w-full  my-3">
-    <div class="relative w-2/5">
-          <input id="input-data" onclick="RemoveDiv()" type="text" class="h-12 w-full pl-5 rounded-lg z-0 focus:shadow focus:outline-none" placeholder="Ecrivez un texte">
-      <div class="absolute top-3 right-4">
-            <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500" onclick="PostData()">
-                </i>
-          </div>
+    <h1 class="text-2xl font-semibold text-white text-center mt-96">
+      <span class="text-gradient">Faites</span> une recherche.
+    </h1>
+    <div class="flex justify-center items-center w-full  my-3">
+      <div class="relative w-2/5">
+            <input id="input-data" onclick="RemoveDiv()" type="text" class="h-12 w-full pl-5 rounded-lg z-0 focus:shadow focus:outline-none" placeholder="Ecrivez un texte">
+        <div class="absolute top-3 right-4">
+              <i class="fa fa-search text-gray-400 z-20 hover:text-gray-500" onclick="PostData()">
+                  </i>
+            </div>
+      </div>
+    </div>
+
+    <div class="w-full overflow-y-auto max-h-96 no-scrollbar" id="remove">
+
     </div>
   </div>
 
-  <div class="w-full overflow-y-auto max-h-96 no-scrollbar" id="remove">
-
-  </div>
-
-
-  <div class="flex justify-center items-center my-12 w-full mt-72">
+  <div class="flex justify-center items-center my-12 w-full">
     <div class="relative w-4/5">
-          <h1 class="text-2xl font-bold text-white my-12">
-          Qu'est ce que les fakes news ?
-          </h1>
 
-          <h1 class="text-2xl font-semibold text-white my-12">
-          Les fake news sont des nouvelles mensongères diffusées dans le but de manipuler ou de tromper le public
-          </h1>
+        <h1 class="text-2xl font-bold text-slate-50 my-12 text-center underline decoration-4 mt-24">
+        Comment utiliser ce site ?
+        </h1>
+
+        <h1 class="text-xl text-slate-200 my-2 text-center">
+        Vous pouvez mettre l'url d'un site afin de savoir si il est fiable si ce site est dans la base de donnée de Décodex. Vous pouvez écrire une fake news en utilisant des <a class="underline  font-bold decoration-4 text-slate-50 decoration-blue-800">termes généraux et court</a> afin de voir si cette fake news a déjà été vérifié et si oui, vous pouvez connaître la réponse de celle ci. Vous pouvez écrire un text pour que le site indique si ce texte donne un opinion négatif de celui ci.
+        </h1>
+
+        <h1 class="text-2xl font-bold text-slate-50 my-12 text-center underline decoration-4 mt-44">
+        Comment ce site fonctionne ?
+        </h1>
+
+        <h1 class="text-xl text-slate-200 my-2 text-center">
+        Le site utilise utilise la base de donnée de  <a href="https://www.lemonde.fr/verification/" class="underline  font-bold decoration-4 text-slate-50 decoration-blue-800">Décodex (lemonde.fr)</a>, l'api <a href="https://monkeylearn.com/" class="underline decoration-blue-800 font-bold decoration-4 text-slate-50">monkeylearn</a> pour détecter le sentiment d'un texte et enfin <a href="https://toolbox.google.com/factcheck/explorer" class="text-slate-50 underline decoration-blue-800 font-bold decoration-4">google fact check tools</a>.
+        Lorsque vous écrivez un texte, une requête est faite vers le serveur qui héberge ce site qui par la suite renvois les données utile, enfin le site se charge d'afficher
+        Ces données de manière lisible.
+        </h1>
+
+        <h1 class="text-2xl font-bold text-slate-50 my-12 text-center underline decoration-4 mt-44">
+        Qu'est ce que les fakes news ?
+        </h1>
+
+        <h1 class="text-xl font-semibold text-white my-2 text-center">
+        Les fake news sont des <a href="https://fr.wikipedia.org/wiki/Infox" class="underline  font-bold decoration-4 text-slate-50 decoration-blue-800">nouvelles mensongères</a> diffusées dans le but de manipuler ou de tromper le public.
+        </h1>
+
+        <h1 class="text-2xl font-bold text-slate-50 my-12 text-center underline decoration-4 mt-44">
+        Qui sont derrière les fakes-news ?
+        </h1>
+
+        <h1 class="text-xl font-semibold text-white my-2 text-center">
+        De nombreuse personne peuvent avoir des interets en diffusant des fake-news, des chefs d'états pour déstabiliser des personnes, ce défendre face à des accusasions, des états pour déstabiliser des élections par exemple etc... Il est important de vérifier les nouvelles que nous diffusons au risque de les aider dans la quête du mensonge.
+        </h1>
+
+        <h1 class="text-2xl font-bold text-slate-50 my-12 text-center underline decoration-4 mt-44">
+        Quelques chiffres.
+        </h1>
+
+        <h1 class="text-xl font-semibold text-white my-2 text-center">
+          <a href="https://fr.statista.com/themes/5481/les-fake-news-en-france/#dossierKeyfigures" class="underline  font-bold decoration-4 text-slate-50 decoration-blue-800">24%</a>, l'exposition aux informations non vérifiées relayées par les réseaux en France en 2018</br>
+          <a href="https://fr.statista.com/themes/5481/les-fake-news-en-france/#dossierKeyfigures" class="underline  font-bold decoration-4 text-slate-50 decoration-blue-800">75%</a>, Sujets abordés par les fake news en France en 2017
+
+        </h1>
 
     </div>
   </div>
+
+  <script>
+    let input = document.getElementById("input-data");
+    input.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        PostData();
+      }
+    });
+  </script>
+
 </body>
 
 </html>

@@ -1,6 +1,19 @@
 function RemoveDiv() {
+  let verif = `
+  <div class="flex justify-center items-center mt-6 w-full">
+    <div class="lds-dual-ring"></div>
+  </div>
+  `
   let element = document.getElementById("remove");
-  element.innerHTML = ''
+
+  if (element.innerHTML != '') {
+    if (document.getElementById("remove").innerHTML != verif) {
+      document.getElementById("input-data").value = ''
+    }
+
+    element.innerHTML = ''
+
+  }
 }
 
 function EditPage(rep) {
@@ -72,7 +85,11 @@ function EditPage(rep) {
 function PostData() {
   let element = document.getElementById("input-data");
   let data = element.value
-  element.value = ""
+
+  if (document.getElementById("remove").innerHTML != '') {
+    element.value = ""
+  }
+
 
   element = document.getElementById("remove");
   element.innerHTML = `
