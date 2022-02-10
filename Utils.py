@@ -76,7 +76,9 @@ def fast_check_tools(text: str) -> dict:
 
     for i, item in enumerate(data['claims']):
         if i <= 2:
-            current[f'response_{i}'] = \
-                [data['claims'][i]['text'], data['claims'][i]['claimReview'][0]['title'], data['claims'][i]['claimReview'][0]['url'], data['claims'][i]['claimReview'][0]['textualRating']]
-
+            try:
+                current[f'response_{i}'] = \
+                    [data['claims'][i]['text'], data['claims'][i]['claimReview'][0]['title'], data['claims'][i]['claimReview'][0]['url'], data['claims'][i]['claimReview'][0]['textualRating']]
+            except:
+                return {}
     return current
