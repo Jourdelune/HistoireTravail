@@ -26,4 +26,4 @@ async def detect():
 
     return jsonify(reponse)
 
-app.run()
+app.run(port=5321)
